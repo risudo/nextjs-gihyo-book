@@ -1,6 +1,6 @@
-import type { AppProps } from "next/app";
-import Head from "next/head";
-import { createGlobalStyle } from "styled-components";
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
+import { createGlobalStyle } from 'styled-components'
 
 // グローバルのスタイル
 const GlobalStyle = createGlobalStyle`
@@ -27,7 +27,7 @@ a {
 ol, ul {
   list-style: none;
 }
-`;
+`
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -48,4 +48,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   )
 }
 
-export default MyApp;
+export default MyApp
