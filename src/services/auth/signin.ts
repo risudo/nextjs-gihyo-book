@@ -1,28 +1,28 @@
-import { ApiContext, User } from "types";
-import { fetcher } from "utils";
+import { ApiContext, User } from 'types'
+import { fetcher } from 'utils'
 
 export type SigninParams = {
   // サンプルユーザーのユーザー名は"user"
-  username: string;
+  username: string
   // サンプルユーザーのユーザー名は"password"
-  password: string;
-};
+  password: string
+}
 
 const signin = async (
   context: ApiContext,
-  params: SigninParams
+  params: SigninParams,
 ): Promise<any> => {
   return await fetcher(
-    `${context.apiRootUrl.replace(/\/$/g, "")}/auth/signin`,
+    `${context.apiRootUrl.replace(/\/$/g, '')}/auth/signin`,
     {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(params),
-    }
-  );
-};
+    },
+  )
+}
 
-export default signin;
+export default signin
