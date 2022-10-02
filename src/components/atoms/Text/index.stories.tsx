@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Text from ".";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import Text from '.'
 
 export default {
   title: 'Atoms/Text',
