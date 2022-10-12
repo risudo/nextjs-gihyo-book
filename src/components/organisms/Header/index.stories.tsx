@@ -1,10 +1,13 @@
-import { ComponentMeta } from "@storybook/react";
-import { AuthContextProvider } from "contexts/AuthContext";
-import { ShoppingCartContextProvider, useShoppingCartContext } from "contexts/ShoppingCartContext";
-import { useEffect } from "react";
-import Header from ".";
+import { ComponentMeta } from '@storybook/react'
+import React, { useEffect } from 'react'
+import Header from './index'
+import { AuthContextProvider } from 'contexts/AuthContext'
+import {
+  ShoppingCartContextProvider,
+  useShoppingCartContext,
+} from 'contexts/ShoppingCartContext'
 
-export default {title: 'organisms/Header'} as ComponentMeta<typeof Header>
+export default { title: 'organisms/Header' } as ComponentMeta<typeof Header>
 
 export const NoLogin = () => <Header />
 
@@ -12,14 +15,14 @@ export const Login = () => {
   const authUser = {
     id: 1,
     username: 'dummy',
-    displayName: 'Rio Sudo',
-    email: 'text@example.com',
-    profileImageUrl: 'images/sample/1.jpg',
+    displayName: 'Taketo Yoshida',
+    email: 'test@example.com',
+    profileImageUrl: '/images/sample/1.jpg',
     description: '',
   }
 
   const ChildComponent = () => {
-    const {addProductToCart} = useShoppingCartContext()
+    const { addProductToCart } = useShoppingCartContext()
 
     useEffect(() => {
       addProductToCart({
