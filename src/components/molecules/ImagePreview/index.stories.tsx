@@ -1,91 +1,92 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import ImagePreview from ".";
-import Dropzone from "../Dropzone";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import Dropzone from '../Dropzone'
+import ImagePreview from '.'
 
 export default {
-  title: "Molecules/ImagePreview",
+  title: 'Molecules/ImagePreview',
   argTypes: {
     src: {
-      control: { type: "text" },
-      description: "画像URL",
+      control: { type: 'text' },
+      description: '画像URL',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     alt: {
-      control: { type: "text" },
-      description: "代替テキスト",
+      control: { type: 'text' },
+      description: '代替テキスト',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     height: {
-      control: { type: "number" },
-      description: "縦幅",
+      control: { type: 'number' },
+      description: '縦幅',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     width: {
-      control: { type: "number" },
-      description: "横幅",
+      control: { type: 'number' },
+      description: '横幅',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     onRemove: {
-      description: "削除ボタンを押した時のイベントハンドラ",
+      description: '削除ボタンを押した時のイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
-} as ComponentMeta<typeof ImagePreview>;
+} as ComponentMeta<typeof ImagePreview>
 
 const Container = styled.div`
   width: 288px;
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr;
-`;
+`
 
 interface Image {
-  file?: File;
-  src?: string;
+  file?: File
+  src?: string
 }
 
 const Template: ComponentStory<typeof ImagePreview> = (args) => {
-  const [files, setFiles] = useState<File[]>([]);
-  const [images, setImages] = useState<Image[]>([]);
+  const [files, setFiles] = useState<File[]>([])
+  const [images, setImages] = useState<Image[]>([])
 
   useEffect(() => {
-    const newImages = [...images];
+    const newImages = [...images]
 
     for (const f of files) {
-      const index = newImages.findIndex((img: Image) => img.file === f);
+      const index = newImages.findIndex((img: Image) => img.file === f)
 
       if (index === -1) {
         newImages.push({
           file: f,
           src: URL.createObjectURL(f),
-        });
+        })
       }
     }
-    setImages(newImages);
-  }, [files]);
+    setImages(newImages)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [files])
 
   const handleRemove = (src: string) => {
-    const image = images.find((img: Image) => img.src === src);
+    const image = images.find((img: Image) => img.src === src)
 
     if (image !== undefined) {
-      setImages((images) => images.filter((img) => img.src !== image.src));
-      setFiles((files) => files.filter((file: File) => file !== image.file));
+      setImages((images) => images.filter((img) => img.src !== image.src))
+      setFiles((files) => files.filter((file: File) => file !== image.file))
     }
 
-    args && args.onRemove && args.onRemove(src);
-  };
+    args && args.onRemove && args.onRemove(src)
+  }
 
   return (
     <Container>
@@ -100,8 +101,8 @@ const Template: ComponentStory<typeof ImagePreview> = (args) => {
         />
       ))}
     </Container>
-  );
-};
+  )
+}
 
-export const WithDropzone = Template.bind({});
-WithDropzone.args = {};
+export const WithDropzone = Template.bind({})
+WithDropzone.args = {}

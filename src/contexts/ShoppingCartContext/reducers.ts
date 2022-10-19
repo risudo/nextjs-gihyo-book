@@ -1,31 +1,31 @@
-import { Product } from "types";
+import { Product } from 'types'
 
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
 
 type ShopReducerAction =
   | {
-      type: "ADD_PRODUCT";
-      payload: Product;
+      type: 'ADD_PRODUCT'
+      payload: Product
     }
   | {
-      type: "REMOVE_PRODUCT";
-      payload: number;
-    };
+      type: 'REMOVE_PRODUCT'
+      payload: number
+    }
 
 const addProductToCart = (product: Product, state: Product[]) => {
-  return [...state, product];
-};
+  return [...state, product]
+}
 
 const removeProductFromCart = (productId: number, state: Product[]) => {
-  const removedItemIndex = state.findIndex((item) => item.id === productId);
-  state.splice(removedItemIndex, 1);
-  return [...state];
-};
+  const removedItemIndex = state.findIndex((item) => item.id === productId)
+  state.splice(removedItemIndex, 1)
+  return [...state]
+}
 
 export const shopReducer: React.Reducer<Product[], ShopReducerAction> = (
   state: Product[],
-  action: ShopReducerAction
+  action: ShopReducerAction,
 ) => {
   switch (action.type) {
     case ADD_PRODUCT:
@@ -35,4 +35,4 @@ export const shopReducer: React.Reducer<Product[], ShopReducerAction> = (
     default:
       return state
   }
-};
+}

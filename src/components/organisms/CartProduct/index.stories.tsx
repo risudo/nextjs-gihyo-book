@@ -1,44 +1,44 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import CartProduct from ".";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import CartProduct from '.'
 
 export default {
-  title: "Organisms/CartProduct",
+  title: 'Organisms/CartProduct',
   argTypes: {
     id: {
-      control: { type: "number" },
-      description: "商品ID",
+      control: { type: 'number' },
+      description: '商品ID',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     title: {
-      control: { type: "text" },
-      description: "商品タイトル",
+      control: { type: 'text' },
+      description: '商品タイトル',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     imageUrl: {
-      control: { type: "text" },
-      description: "商品画像URL",
+      control: { type: 'text' },
+      description: '商品画像URL',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     onBuyButtonClick: {
-      description: "購入ボタンを押した時のイベントハンドラ",
+      description: '購入ボタンを押した時のイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
     onRemoveButtonClick: {
-      description: "削除ボタンを押した時のイベントハンドラ",
+      description: '削除ボタンを押した時のイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
-} as ComponentMeta<typeof CartProduct>;
+} as ComponentMeta<typeof CartProduct>
 
 const Template: ComponentStory<typeof CartProduct> = (args) => (
   <CartProduct {...args} />

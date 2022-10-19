@@ -1,10 +1,10 @@
-import AppLogo from "components/atoms/AppLogo";
-import Box from "components/layout/Box";
-import Flex from "components/layout/Flex";
-import Layout from "components/templetes/Layout";
-import SigninFormContainer from "containers/SigninFormContainer";
-import { NextPage } from "next";
-import { useRouter } from "next/router";
+import { NextPage } from 'next'
+import { useRouter } from 'next/router'
+import AppLogo from 'components/atoms/AppLogo'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
+import Layout from 'components/templetes/Layout'
+import SigninFormContainer from 'containers/SigninFormContainer'
 
 const SigninPage: NextPage = () => {
   const router = useRouter()
@@ -13,7 +13,7 @@ const SigninPage: NextPage = () => {
       // サインインに成功し、クエリが指定されている場合はそのURLに移動
       // デフォルトはトップページに移動
       const redirectTo = (router.query['redirect_to'] as string) ?? '/'
-      console.log("Redirecting", redirectTo)
+      console.log('Redirecting', redirectTo)
       await router.push(redirectTo)
     }
   }
@@ -47,7 +47,7 @@ const SigninPage: NextPage = () => {
         </Flex>
       </Flex>
     </Layout>
-  );
-};
+  )
+}
 
-export default SigninPage;
+export default SigninPage

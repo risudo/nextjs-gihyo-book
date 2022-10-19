@@ -1,20 +1,20 @@
-import React, { useCallback, useState } from "react";
-import styled from "styled-components";
+import React, { useCallback, useState } from 'react'
+import styled from 'styled-components'
 
 export interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   /**
    * 最小行数
    */
-  minRows?: number;
+  minRows?: number
   /**
    * 最大行数
    */
-  maxRows?: number;
+  maxRows?: number
   /**
    * バリデーションエラーフラグ
    */
-  hasError?: boolean;
+  hasError?: boolean
 }
 
 const StyledTextArea = styled.textarea<{ hasError?: boolean }>`
@@ -36,7 +36,7 @@ const StyledTextArea = styled.textarea<{ hasError?: boolean }>`
   &::placeholder {
     color: ${({ theme }) => theme.colors.placeholder};
   }
-`;
+`
 
 const TextArea = (props: TextAreaProps) => {
   const {
@@ -47,40 +47,38 @@ const TextArea = (props: TextAreaProps) => {
     hasError,
     onChange,
     ...rest
-  } = props;
-  const [textareaRows, setTextareaRows] = useState(Math.min(rows, minRows));
+  } = props
+  const [textareaRows, setTextareaRows] = useState(Math.min(rows, minRows))
   console.assert(
     !(rows < minRows),
-    "TextArea: rows should be greater than minRows."
-  );
+    'TextArea: rows should be greater than minRows.',
+  )
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      const textareaLineHeight = 24;
-      const previousRows = e.target.rows;
+      const textareaLineHeight = 24
+      const previousRows = e.target.rows
 
-      e.target.rows = minRows; // 行数のリセット
+      e.target.rows = minRows // 行数のリセット
 
       // 現在の行数
-      const currentRows = Math.floor(
-        e.target.scrollHeight / textareaLineHeight
-      );
+      const currentRows = Math.floor(e.target.scrollHeight / textareaLineHeight)
 
       if (currentRows === previousRows) {
-        e.target.rows = currentRows;
+        e.target.rows = currentRows
       }
 
       if (currentRows >= maxRows) {
-        e.target.rows = maxRows;
-        e.target.scrollTop = e.target.scrollHeight;
+        e.target.rows = maxRows
+        e.target.scrollTop = e.target.scrollHeight
       }
 
       // 最大を超えないように行数をセット
-      setTextareaRows(currentRows < maxRows ? currentRows : maxRows);
-      onChange && onChange(e);
+      setTextareaRows(currentRows < maxRows ? currentRows : maxRows)
+      onChange && onChange(e)
     },
-    [onChange, minRows, maxRows]
-  );
+    [onChange, minRows, maxRows],
+  )
 
   return (
     <StyledTextArea
@@ -92,9 +90,8 @@ const TextArea = (props: TextAreaProps) => {
     >
       {children}
     </StyledTextArea>
-  );
-};
-
+  )
+}
 
 TextArea.defaultProps = {
   rows: 5,

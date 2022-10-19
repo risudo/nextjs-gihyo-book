@@ -1,78 +1,78 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Dropdown from "./index";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import Dropdown from './index'
 
 export default {
-  title: "Molecules/Dropdown",
+  title: 'Molecules/Dropdown',
   argTypes: {
     options: {
-      control: { type: "array" },
-      description: "ドロップダウンの選択肢",
+      control: { type: 'array' },
+      description: 'ドロップダウンの選択肢',
       table: {
-        type: { summary: "array" },
+        type: { summary: 'array' },
       },
     },
     hasError: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "バリデーションエラーフラグ",
+      description: 'バリデーションエラーフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
     placeholder: {
-      control: { type: "text" },
-      description: "プレースホルダー",
+      control: { type: 'text' },
+      description: 'プレースホルダー',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     value: {
-      control: { type: "text" },
-      description: "ドロップダウンの値",
+      control: { type: 'text' },
+      description: 'ドロップダウンの値',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     onChange: {
-      description: "値が変化した時のイベントハンドラ",
+      description: '値が変化した時のイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
-} as ComponentMeta<typeof Dropdown>;
+} as ComponentMeta<typeof Dropdown>
 
 const Templete: ComponentStory<typeof Dropdown> = (args) => (
   <Dropdown {...args} />
-);
+)
 
-export const Normal = Templete.bind({});
+export const Normal = Templete.bind({})
 Normal.args = {
   options: [
-    { value: null, label: "-" },
-    { value: "one", label: "One" },
-    { value: "two", label: "Two" },
-    { value: "three", label: "Three" },
+    { value: null, label: '-' },
+    { value: 'one', label: 'One' },
+    { value: 'two', label: 'Two' },
+    { value: 'three', label: 'Three' },
   ],
-  placeholder: "Please select items from the list",
-};
+  placeholder: 'Please select items from the list',
+}
 
-export const InitialValue = Templete.bind({});
+export const InitialValue = Templete.bind({})
 InitialValue.args = {
   options: [
-    { value: null, label: "-" },
-    { value: "one", label: "One" },
-    { value: "two", label: "Two" },
-    { value: "three", label: "Three" },
+    { value: null, label: '-' },
+    { value: 'one', label: 'One' },
+    { value: 'two', label: 'Two' },
+    { value: 'three', label: 'Three' },
   ],
-  placeholder: "Please select items from the list",
-  value: "one",
-};
+  placeholder: 'Please select items from the list',
+  value: 'one',
+}
 
-export const Many = Templete.bind({});
+export const Many = Templete.bind({})
 Many.args = {
   options: Array.from(Array(20), (_v, k) => {
-    return { value: k.toString(), label: k.toString() };
+    return { value: k.toString(), label: k.toString() }
   }),
-  placeholder: "Please select items from the list",
-};
+  placeholder: 'Please select items from the list',
+}

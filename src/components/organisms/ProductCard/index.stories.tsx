@@ -1,52 +1,52 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ProductCard from ".";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import ProductCard from '.'
 
 export default {
-  title: "Organisms/ProductCard",
+  title: 'Organisms/ProductCard',
   argTypes: {
     title: {
-      control: { type: "text" },
-      description: "商品名",
+      control: { type: 'text' },
+      description: '商品名',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     price: {
-      control: { type: "number" },
-      description: "商品価格",
+      control: { type: 'number' },
+      description: '商品価格',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     imageUrl: {
-      control: { type: "text" },
-      description: "商品画像URL",
+      control: { type: 'text' },
+      description: '商品画像URL',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     blurDataUrl: {
-      control: { type: "text" },
-      description: "商品のぼかし画像のデータURIスキーム",
+      control: { type: 'text' },
+      description: '商品のぼかし画像のデータURIスキーム',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     variant: {
-      options: ["listing", "small", "detail"],
-      control: { type: "dadio" },
-      defaultValue: "listing",
-      description: "バリアント(表示スタイル)",
+      options: ['listing', 'small', 'detail'],
+      control: { type: 'dadio' },
+      defaultValue: 'listing',
+      description: 'バリアント(表示スタイル)',
       table: {
-        type: { summary: "listing | small | detail" },
-        defaultValue: { summary: "primary" },
+        type: { summary: 'listing | small | detail' },
+        defaultValue: { summary: 'primary' },
       },
     },
   },
-} as ComponentMeta<typeof ProductCard>;
+} as ComponentMeta<typeof ProductCard>
 
 const Templete: ComponentStory<typeof ProductCard> = (args) => (
-  <ProductCard {...args}/>
+  <ProductCard {...args} />
 )
 
 export const Listing = Templete.bind({})

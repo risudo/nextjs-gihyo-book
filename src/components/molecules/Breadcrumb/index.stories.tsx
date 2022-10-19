@@ -1,10 +1,10 @@
-import { ComponentMeta } from "@storybook/react";
-import BreadcrumbItem from "components/atoms/BreadcrumbItem";
-import Breadcrumb from ".";
+import { ComponentMeta } from '@storybook/react'
+import Breadcrumb from '.'
+import BreadcrumbItem from 'components/atoms/BreadcrumbItem'
 
-export default { title: "Molecules/Breadcrumb" } as ComponentMeta<
+export default { title: 'Molecules/Breadcrumb' } as ComponentMeta<
   typeof Breadcrumb
->;
+>
 
 export const Standard = () => (
   <Breadcrumb>
@@ -16,4 +16,4 @@ export const Standard = () => (
     </BreadcrumbItem>
     <BreadcrumbItem>Item</BreadcrumbItem>
   </Breadcrumb>
-);
+)

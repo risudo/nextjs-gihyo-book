@@ -1,11 +1,10 @@
-import { CloseIcon } from "components/atoms/IconButton";
-import Text from "components/atoms/Text";
-import Flex from "components/layout/Flex";
-import styled from "styled-components";
+import styled from 'styled-components'
+import { CloseIcon } from 'components/atoms/IconButton'
+import Flex from 'components/layout/Flex'
 
 const ImagePreviewContainer = styled.div`
   position: relative;
-`;
+`
 
 // 閉じるボタンのラップ
 const CloseBox = styled(Flex)`
@@ -17,23 +16,23 @@ const CloseBox = styled(Flex)`
   border-radius: 06px 06px;
   background-color: rgba(44, 44, 44, 0.06);
   cursor: pointer;
-`;
+`
 
 interface ImagePreviewProps {
   // 画像URL
-  src?: string;
+  src?: string
 
   // 代替テキスト
-  alt?: string;
+  alt?: string
 
   // 縦幅
-  height?: string;
+  height?: string
 
   // 横幅
-  width?: string;
+  width?: string
 
   // 削除ボタンを押した時のイベントハンドラ
-  onRemove?: (src: string) => void;
+  onRemove?: (src: string) => void
 }
 
 // イメージプレビュー
@@ -46,14 +45,15 @@ const ImagePreview = ({
 }: ImagePreviewProps) => {
   // 閉じるボタンを押したらonRemoveを呼ぶ
   const handleCloseClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    onRemove && src && onRemove(src);
-    return false;
-  };
+    e.preventDefault()
+    e.stopPropagation()
+    onRemove && src && onRemove(src)
+    return false
+  }
 
   return (
     <ImagePreviewContainer>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt={alt} height={height} width={width} />
       <CloseBox
         alignItems="center"
@@ -63,7 +63,7 @@ const ImagePreview = ({
         <CloseIcon size={24} color="white" />
       </CloseBox>
     </ImagePreviewContainer>
-  );
-};
+  )
+}
 
 export default ImagePreview
