@@ -1,38 +1,38 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Input from ".";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import Input from '.'
 
 export default {
-  title: "Atoms/Input",
+  title: 'Atoms/Input',
   argTypes: {
     placeholder: {
-      control: { type: "text" },
-      description: "プレースホルダー",
+      control: { type: 'text' },
+      description: 'プレースホルダー',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     hasBorder: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: true,
-      description: "ボーダーフラグ",
+      description: 'ボーダーフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
     hasError: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "バリデーションフラグ",
+      description: 'バリデーションフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
   },
-} as ComponentMeta<typeof Input>;
+} as ComponentMeta<typeof Input>
 
-const Templete: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+const Templete: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
-export const Normal = Templete.bind({});
+export const Normal = Templete.bind({})
 
-export const Error = Templete.bind({});
-Error.args = { hasError: true };
+export const Error = Templete.bind({})
+Error.args = { hasError: true }

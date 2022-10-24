@@ -1,14 +1,14 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Badge from ".";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import Badge from '.'
 
 export default {
-  title: "Atoms/Badge",
+  title: 'Atoms/Badge',
   argTypes: {
     content: {
-      control: { type: "text" },
-      description: "バッジのテキスト",
+      control: { type: 'text' },
+      description: 'バッジのテキスト',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     backgroundColor: {
@@ -19,7 +19,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Badge>;
+} as ComponentMeta<typeof Badge>
 
 const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />
 
@@ -31,4 +31,3 @@ Green.args = { content: '2', backgroundColor: '#32bf00' }
 
 export const Red = Template.bind({})
 Red.args = { content: '10', backgroundColor: '#d4001a' }
-

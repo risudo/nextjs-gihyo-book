@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React, { useState, useEffect } from 'react'
+import Dropzone from '.'
 import Button from 'components/atoms/Button'
 import Box from 'components/layout/Box'
-import Dropzone from '.'
 
 export default {
   title: 'Molecules/Dropzone',
@@ -110,4 +110,3 @@ WithControl.args = {
   acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'],
   hasError: false,
 }
-

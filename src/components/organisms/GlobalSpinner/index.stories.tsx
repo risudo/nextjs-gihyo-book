@@ -1,25 +1,25 @@
-import { ComponentMeta } from "@storybook/react";
-import Button from "components/atoms/Button";
+import { ComponentMeta } from '@storybook/react'
+import GlobalSpinner from '.'
+import Button from 'components/atoms/Button'
 import GlobalSpinnerContextProvider, {
   useGlobalSpinnerActionContext,
-} from "contexts/GlobalSpinnerContext";
-import GlobalSpinner from ".";
+} from 'contexts/GlobalSpinnerContext'
 
 export default {
-  title: "organisms/GlobalSpinner",
-} as ComponentMeta<typeof GlobalSpinner>;
+  title: 'organisms/GlobalSpinner',
+} as ComponentMeta<typeof GlobalSpinner>
 
 export const WithContextProvider = () => {
   const ChildComponent = () => {
-    const setGlobalSpinner = useGlobalSpinnerActionContext();
+    const setGlobalSpinner = useGlobalSpinnerActionContext()
     const handleClick = () => {
-      setGlobalSpinner(true);
+      setGlobalSpinner(true)
 
       // 5秒後に閉じる
       setTimeout(() => {
-        setGlobalSpinner(false);
-      }, 5000);
-    };
+        setGlobalSpinner(false)
+      }, 5000)
+    }
 
     return (
       <>
@@ -27,12 +27,12 @@ export const WithContextProvider = () => {
         {/* クリックでスピナーを表示 */}
         <Button onClick={handleClick}>スピナー表示</Button>
       </>
-    );
-  };
+    )
+  }
 
   return (
     <GlobalSpinnerContextProvider>
       <ChildComponent />
     </GlobalSpinnerContextProvider>
-  );
-};
+  )
+}

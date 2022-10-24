@@ -1,25 +1,25 @@
-import Button from "components/atoms/Button";
-import Text from "components/atoms/Text";
-import Box from "components/layout/Box";
-import Flex from "components/layout/Flex";
-import Image from "next/image";
-import Link from "next/link";
-import styled from "styled-components";
+import Image from 'next/image'
+import Link from 'next/link'
+import styled from 'styled-components'
+import Button from 'components/atoms/Button'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
 
 const RemoveText = styled(Text)`
   cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
 interface CartProductProps {
-  id: number;
-  imageUrl: string;
-  title: string;
-  price: number;
-  onBuyButtonClick?: (id: number) => void;
-  onRemoveButtonClick?: (id: number) => void;
+  id: number
+  imageUrl: string
+  title: string
+  price: number
+  onBuyButtonClick?: (id: number) => void
+  onRemoveButtonClick?: (id: number) => void
 }
 
 const CartProduct = ({
@@ -30,7 +30,7 @@ const CartProduct = ({
   onBuyButtonClick,
   onRemoveButtonClick,
 }: CartProductProps) => {
-return (
+  return (
     <Flex justifyContent="space-between">
       <Flex>
         <Box width="120px" height="120px">
@@ -100,6 +100,6 @@ return (
       </Box>
     </Flex>
   )
-};
+}
 
 export default CartProduct

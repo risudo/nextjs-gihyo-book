@@ -1,20 +1,20 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Text from "components/atoms/Text";
-import Box from "components/layout/Box";
-import CheckBox from "components/molecules/CheckBox";
+import React, { useCallback, useEffect, useState } from 'react'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
+import CheckBox from 'components/molecules/CheckBox'
 
 type Item = {
-  label: string;
-  name: string;
-};
+  label: string
+  name: string
+}
 
 type FilterGroupProps = {
-  title: string;
-  items: Item[];
-  value?: string[];
-  defaultValue?: string[];
-  onChange?: (values: string[]) => void;
-};
+  title: string
+  items: Item[]
+  value?: string[]
+  defaultValue?: string[]
+  onChange?: (values: string[]) => void
+}
 
 const FilterGroup = ({
   title,
@@ -23,24 +23,24 @@ const FilterGroup = ({
   defaultValue = [],
   onChange,
 }: FilterGroupProps) => {
-  const [selected, setSelected] = useState(value ?? defaultValue);
+  const [selected, setSelected] = useState(value ?? defaultValue)
 
   useEffect(() => {
-    setSelected(value);
-  }, [value]);
+    setSelected(value)
+  }, [value])
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = e.target.name;
+      const value = e.target.name
       const newSelected = e.target.checked
         ? [...selected, value]
-        : selected.filter((v) => v !== value);
+        : selected.filter((v) => v !== value)
 
-      setSelected(newSelected);
-      onChange && onChange(newSelected);
+      setSelected(newSelected)
+      onChange && onChange(newSelected)
     },
-    [onChange, selected]
-  );
+    [onChange, selected],
+  )
 
   return (
     <>
@@ -49,7 +49,7 @@ const FilterGroup = ({
       </Text>
       <Box marginTop={2}>
         {items.map(({ label, name }, i) => (
-          <Box key={i} marginTop={i === 0 ? 0 : "4px"}>
+          <Box key={i} marginTop={i === 0 ? 0 : '4px'}>
             <CheckBox
               name={name}
               label={label}
@@ -60,7 +60,7 @@ const FilterGroup = ({
         ))}
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default FilterGroup;
+export default FilterGroup

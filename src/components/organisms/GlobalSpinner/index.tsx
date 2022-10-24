@@ -1,6 +1,6 @@
-import Spinner from "components/atoms/Spinner";
-import { useGlobalSpinnerContext } from "contexts/GlobalSpinnerContext";
-import styled from "styled-components";
+import styled from 'styled-components'
+import Spinner from 'components/atoms/Spinner'
+import { useGlobalSpinnerContext } from 'contexts/GlobalSpinnerContext'
 
 const GlobalSpinnerWrapper = styled.div`
   position: fixed;
@@ -13,10 +13,10 @@ const GlobalSpinnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1200;
-`;
+`
 
 const GlobalSpinner = () => {
-  const isGlobalSpinnerOn = useGlobalSpinnerContext();
+  const isGlobalSpinnerOn = useGlobalSpinnerContext()
 
   return (
     <>
@@ -26,7 +26,7 @@ const GlobalSpinner = () => {
         </GlobalSpinnerWrapper>
       )}
     </>
-  );
-};
+  )
+}
 
-export default GlobalSpinner;
+export default GlobalSpinner
