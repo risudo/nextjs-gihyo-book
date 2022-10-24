@@ -1,23 +1,23 @@
-import ProductCard from "components/organisms/ProductCard";
-import ProductCardList from "components/organisms/ProductCardList";
-import Link from "next/link";
-import { Fragment } from "react";
-import useSearch from "services/products/use-search";
-import { ApiContext, Product } from "types";
+import Link from 'next/link'
+import { Fragment } from 'react'
+import ProductCard from 'components/organisms/ProductCard'
+import ProductCardList from 'components/organisms/ProductCardList'
+import useSearch from 'services/products/use-search'
+import { ApiContext, Product } from 'types'
 
 const context: ApiContext = {
-  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || "/api/proxy",
-};
+  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',
+}
 
 interface UserProductCardListContainerProps {
   /**
    * 商品を所有するユーザーID
    */
-  userId: number;
+  userId: number
   /**
    * 初期で表示する商品リスト
    */
-  products?: Product[];
+  products?: Product[]
 }
 
 const UserProductCardListContainer = ({
@@ -27,7 +27,7 @@ const UserProductCardListContainer = ({
   const { products: userProducts } = useSearch(context, {
     userId,
     initial: products,
-  });
+  })
 
   return (
     <ProductCardList numberPerRow={6} numberPerRowForMobile={2}>
@@ -46,7 +46,7 @@ const UserProductCardListContainer = ({
         </Fragment>
       ))}
     </ProductCardList>
-  );
-};
+  )
+}
 
-export default UserProductCardListContainer;
+export default UserProductCardListContainer

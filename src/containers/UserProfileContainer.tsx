@@ -1,20 +1,20 @@
-import UserProfile from "components/organisms/UserProfile";
-import useUser from "services/users/use-user";
-import { ApiContext, User } from "types";
+import UserProfile from 'components/organisms/UserProfile'
+import useUser from 'services/users/use-user'
+import { ApiContext, User } from 'types'
 
 const context: ApiContext = {
-  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || "/api/proxy",
-};
+  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',
+}
 
 interface UserProfileContainerProps {
-  userId: number;
-  user?: User;
+  userId: number
+  user?: User
 }
 
 const UserProfileContainer = ({ userId, user }: UserProfileContainerProps) => {
-  const { user: u } = useUser(context, { id: userId, initial: user });
+  const { user: u } = useUser(context, { id: userId, initial: user })
 
-  if (!u) return <div>Loading...</div>;
+  if (!u) return <div>Loading...</div>
 
   return (
     <UserProfile
@@ -23,7 +23,7 @@ const UserProfileContainer = ({ userId, user }: UserProfileContainerProps) => {
       numberOfProducts={100}
       description={u.description}
     />
-  );
-};
+  )
+}
 
-export default UserProfileContainer;
+export default UserProfileContainer

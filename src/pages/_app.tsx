@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { createGlobalStyle, ThemeProvider  } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { theme } from 'themes'
 
 // グローバルのスタイル
